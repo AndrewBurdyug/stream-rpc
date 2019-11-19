@@ -16,8 +16,8 @@ setup(
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
-        "Topic :: Internet :: Stream-RPC",
-        "License :: OSI Approved :: Apache Software License v2.0",
+        "Topic :: Internet",
+        "License :: OSI Approved :: Apache Software License",
         "Programming Language :: Python :: 3.7",
     ],
 )
