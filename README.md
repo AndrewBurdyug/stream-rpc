@@ -5,6 +5,11 @@ all messages will be encrypted. It is not traditional RPC protocol,
 it looks like abstract protocol of peer-to-peer messages, which you
 can use for your particular cases.
 
+Repositories:
+
+ - GitHub: https://github.com/AndrewBurdyug/stream-rpc
+ - GitLab: https://gitlab.com/buran83/stream-rpc
+
 ## Installation / integration
 
 Via pip:
