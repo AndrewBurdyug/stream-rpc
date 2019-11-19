@@ -24,6 +24,23 @@ and helper function:
    basically you will use it only for sending "hello" message in startup phase (later
    this function will be removed)
 
+## Configurable settings
+
+Settings which you can override through OS environment variables:
+
+ - `STREAM_RPC_HOST` host address on which server will listen for incoming connections and
+   client will connect, default: 0.0.0.0 (all system network interfaces)
+ - `STREAM_RPC_PORT` a port number on which server will listen for incoming connections and
+   client will connect, default: 8888
+ - `STREAM_RPC_LOG_LVL` log level, default: INFO
+
+Settings which you should override in your code:
+
+ - `STREAM_RPC_TERM` separator of messages in stream, default: b"\n"
+ - `STREAM_RPC_CYPHER` cypher which will use for encryption/decryption of messages,
+   default: `stream_rpc.crypto.Cypher`
+ - `STREAM_RPC_LOG_FMT` format of log messages
+
 # Examples of usage
 
 ## Define a server
@@ -182,8 +199,13 @@ Ok, set up the environ variable `CRYPTO_KEY` and run `server.py` (see the `examp
 ```
 $ export CRYPTO_KEY=EDCxyWkoWp9HjjXhaObi4PoORMUTIiZ4jIWAAKLUvgs=
 
-$ python server.py                                                                                                                                                                                                2019-11-19 20:49:11,244 Connector
-  \_ INFO     [e4a384f8-0af4-11ea-8e6d-a08869d09fd5] Start Stream-RPC server, listen on 0.0.0.0:8888
+$ export STREAM_RPC_HOST=127.0.0.1
+
+$ export STREAM_RPC_HOST=8899
+
+$ python server.py
+2019-11-19 20:49:11,244 Connector
+  \_ INFO     [e4a384f8-0af4-11ea-8e6d-a08869d09fd5] Start Stream-RPC server, listen on 127.0.0.1:8899
 2019-11-19 20:49:26,449 ServerProtocol
   \_ INFO     [e4a384f8-0af4-11ea-8e6d-a08869d09fd5] Received: MessagePacket(peer='edac5516-0af4-11ea-82cb-a08869d09fd5', id=1, created_at=datetime.datetime(2019, 11, 19, 17, 49, 26, 401400), method='ping', payload={})
 2019-11-19 20:49:26,450 ServerProtocol
@@ -214,6 +236,10 @@ and run `client.py`:
 
 ```
 $ export CRYPTO_KEY=EDCxyWkoWp9HjjXhaObi4PoORMUTIiZ4jIWAAKLUvgs=
+
+$ export STREAM_RPC_HOST=127.0.0.1
+
+$ export STREAM_RPC_HOST=8899
 
 $ python client.py
 2019-11-19 20:49:26,447 ClientProtocol
