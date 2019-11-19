@@ -5,6 +5,42 @@ all messages will be encrypted. It is not traditional RPC protocol,
 it looks like abstract protocol of peer-to-peer messages, which you
 can use for your particular cases.
 
+## Installation / integration
+
+Via pip:
+
+```
+$ pip install stream-rpc
+```
+
+Dependence of your own package, add to setup.py:
+
+```python
+    ...
+    install_requires=[
+        ...
+        # release from pypi:
+        "stream-rpc==0.0.1",
+        ...
+        # dev version from repo:
+        "stream-rpc @ git+ssh://git@github.com/AndrewBurdyug/stream-rpc.git@0.0.2pre",
+        "stream-rpc @ git+ssh://git@github.com/AndrewBurdyug/stream-rpc.git@1c3fda5",
+        ...
+
+    ]
+    ...
+```
+
+or you project, add to requirements.txt:
+
+```
+-e git://github.com/AndrewBurdyug/stream-rpc.git@0.0.2pre
+```
+
+WARNING: mentioned version numbers used just for illustration,
+check the current version on GitHub/GitLab repo or
+https://pypi.org/project/stream-rpc/#history.
+
 ## Package structure
 
 There are two modules: `common` and `crypto`. The `common` contains common for clien/server
