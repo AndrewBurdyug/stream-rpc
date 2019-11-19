@@ -28,6 +28,7 @@ and helper function:
 
 Settings which you can override through OS environment variables:
 
+ - `CRYPTO_KEY` password which will use for encryption/decryption of messages
  - `STREAM_RPC_HOST` host address on which server will listen for incoming connections and
    client will connect, default: 0.0.0.0 (all system network interfaces)
  - `STREAM_RPC_PORT` a port number on which server will listen for incoming connections and
