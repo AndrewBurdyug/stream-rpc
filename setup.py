@@ -5,7 +5,7 @@ setup(
     name="stream-rpc",
     packages=["stream_rpc"],
     version=open("VERSION").read().strip(),
-    install_requires=["cryptography==2.8"],
+    install_requires=["cryptography==39.0.1"],
     include_package_data=True,
     author="Andrew Burdyug",
     author_email="buran83@gmail.com",
